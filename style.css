@@ -28,7 +28,8 @@
   font-size: 14px;
   resize: vertical;
   border-radius: 0 0 8px 8px;
-  color: black; 
+  color: black;
+  box-sizing: border-box;
 }
 .comment-box textarea:focus-visible{
     outline: none;
