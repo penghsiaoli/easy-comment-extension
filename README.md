@@ -1,5 +1,5 @@
 # easy-comment-extension
-サイト上に任意の範囲を囲ってコメントを付けられる拡張機能
+この拡張機能は、サイト上に任意の範囲を囲ってコメントを付けられる拡張機能です。<br/>
 <img width="1786" height="1118" alt="image" src="https://github.com/user-attachments/assets/cd841677-fd84-463b-8f89-ffe2f2f9a8b0" />
 
 <hr/>
