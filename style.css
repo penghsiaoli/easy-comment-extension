@@ -1,0 +1,67 @@
+.comment-box {
+  position: absolute;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.comment-header {
+  height: 20px;
+  cursor: move;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.comment-box textarea {
+  width: 100%;
+  border: none;
+  padding: 8px;
+  color: #333;
+  background: #fff;
+  font-size: 14px;
+  resize: vertical;
+  border-radius: 0 0 8px 8px;
+  color: black; 
+}
+.comment-box textarea:focus-visible{
+    outline: none;
+}
+
+.delete {
+  position: absolute;
+  top: -1px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+  padding: 0;
+  line-height: 1;
+}
+
+.delete:hover {
+  color: #000;
+}
+
+#comment-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+}
+
+.highlight-box {
+  position: absolute;
+  border: 2px dashed #d94848;
+  background-color: rgba(217, 72, 72, 0.1);
+  z-index: 9997;
+  pointer-events: none;
+}
