@@ -1,6 +1,7 @@
 (() => {
   let active = false;
   let layer;
+  let modeIndicator;
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "TOGGLE_COMMENT_MODE") {
@@ -11,6 +12,7 @@
   function toggleMode() {
     if (active) {
       layer?.remove();
+      modeIndicator?.remove();
       active = false;
     } else {
       localStorage.removeItem("page-comments");
@@ -23,6 +25,18 @@
     layer = document.createElement("div");
     layer.id = "comment-layer";
     document.body.appendChild(layer);
+
+    modeIndicator = document.createElement('div');
+    modeIndicator.id = 'mode-indicator';
+    modeIndicator.innerHTML = `
+      <span>コメントモード</span>
+      <button class="close-indicator-btn">非表示</button>
+    `;
+    document.body.appendChild(modeIndicator);
+
+    modeIndicator.querySelector('.close-indicator-btn').addEventListener('click', () => {
+      modeIndicator.remove();
+    });
 
     // Set layer to cover the entire document
     layer.style.width = document.documentElement.scrollWidth + 'px';
@@ -118,9 +132,10 @@
     el.addEventListener('mousedown', (e) => e.stopPropagation());
 
     el.innerHTML = `
-      <div class="comment-header"></div>
+      <div class="comment-header">
+        <button class="delete">×</button>
+      </div>
       <textarea placeholder="コメント..." rows="2">${text}</textarea>
-      <button class="delete">×</button>
     `;
 
     const delBtn = el.querySelector(".delete");
